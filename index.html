@@ -1,36 +1,46 @@
 <!doctype html>
 <html lang="en-US">
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <meta charset="utf-8" />
         <title>ir-dan</title>
         <script src="index.js" defer></script>
         <link rel="stylesheet" href="style.css">
     </head>
 
+    <canvas id="myCanvas" width="200" height="200"> </canvas>
+
     <body onresize="resizeHandler()">
-        <canvas id="myCanvas" width="200" height="200"></canvas>
-
         <div class = "menu">
-            <div class = "glass"> </div>
-            <div class = "container">
-                <div class="banner">
-                    <div class="profileWrap">
-                        <img src="face.jpg" alt="User icon" class="profile"/>
-                    </div>
-                    <div class="info"> 
-                        <h1> Daniel Dodoc </h1>
-                        <h2> Software Engineer</h2>
-                    </div>
-                </div>
+            <div class="container">
+                <div class="container-inner">
 
-                <hr class="bar">
+                    <div class = "stuff">
+                        <div class="banner">
+                            <div class="profileWrap">
+                                <img src="face.jpg" alt="User icon" class="profile"/>
+                            </div>
+                            <div class="info"> 
+                                <h1> Daniel Dodoc </h1>
+                                <h2> Software Engineer</h2>
+                            </div>
+                        </div>
+                        <hr class="bar">
+                        <div class="buttonBox">
+                            <a href="portfolio.html"><button type="button"> Portfolio </button></a>
+                            <a href="https://github.com/InRe-Dan"><button type="button"> GitHub </button></a>
+                            <button type="button", class="aboutButton"> About Me </button>
+                        </div>
+                    </div>
 
-                <div class="buttonBox">
-                    <button type="button", id="button1"> Portfolio </button>
-                    <button type="button", id="button2"> GitHub </button>
-                    <button type="button", id="button3"> About Me </button>
+                    <div class="about">
+                        <h1> Hey whats up hello!! </h1>
+                        <button type="button" id="exit-about"> Unflip </button>
+                    </div>
+
                 </div>
             </div>
         </div>
+
     </body>
 </html>

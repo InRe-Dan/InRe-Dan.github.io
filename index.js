@@ -1,13 +1,16 @@
-var button1 = document.querySelector("#button1")
-var button2 = document.querySelector("#button2")
-var button3 = document.querySelector("#button3")
 var menu = document.querySelector(".menu")
 var canvas = document.querySelector("#myCanvas")
+var aboutButton = document.querySelector(".aboutButton")
+var exitAboutButton = document.querySelector("#exit-about")
+aboutButton.onclick = flip
+exitAboutButton.onclick = flip
 var ctx = canvas.getContext("2d")
 setInterval(canvasFrame, 1000 / 60)
 var frames = 0
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
+var flipped = false
 
 class Vector extends Array {
     add(other) {
@@ -24,12 +27,12 @@ let wind_goal = -0.25
 
 class Particle {
     constructor() {
+        this.velocity = new Vector(0, 0)
         this.setDefaults()
     }
 
     setDefaults() {
         this.setNewSpawn()
-        this.velocity = new Vector(0, 0)
         this.width = Math.random() * 5 + 3
         this.mass = 3 + Math.random() * this.width;
     }
@@ -39,6 +42,7 @@ class Particle {
             this.setDefaults()
         }
         this.velocity = this.velocity.add(wind.divide(new Vector(this.mass, this.mass)))
+        this.velocity = new Vector(this.velocity[0] / (1.01), this.velocity[1] / (1.01))
         this.x += this.velocity[0]
         this.y += this.velocity[1]
         ctx.beginPath();
@@ -52,11 +56,9 @@ class Particle {
 
     setNewSpawn() {
         this.y = -20
-        this.x = Math.random() * window.innerWidth * 2;
+        this.x = Math.random() * (window.innerWidth + window.innerHeight * 2);
     }
 }
-
-button1.onclick = whenClicked
 
 function resizeHandler() {
     canvas.width = window.innerWidth;
@@ -84,6 +86,12 @@ function canvasFrame() {
     }
 }
 
-function whenClicked() {
-    console.log("yea")
+function flip () {
+    flipped = !flipped
+    console.log(flipped)
+    if (flipped){
+        $(".container-inner").addClass("rotated")
+    } else {
+        $(".container-inner").removeClass("rotated")
+    }
 }

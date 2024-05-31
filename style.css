@@ -34,9 +34,10 @@ li {
   text-shadow: -2px 2px 5px #00000077;
   font-size: 16pt;
   margin: 2px 0 0 0;
+  text-align: left;
 }
 
-.container, .glass {
+.container {
   background-color: transparent;
   position: fixed;
   inset: 0;
@@ -48,12 +49,50 @@ li {
   margin: auto;
   max-width: 550px;
   max-height: 260px;
-}
-
-.glass {
   background-color: rgba(255, 255, 255, .05);  
   backdrop-filter: blur(30px);
   border-radius: 20px;
+
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* This container is needed to position the front and back side */
+.container-inner {
+  display:flex;
+  flex: 1 1 auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.rotated {
+  transform: rotateY(180deg);
+}
+
+.stuff, .about {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.stuff {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: stretch;
+  flex: 1 1 auto;
+}
+
+.about {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }
 
 .profileWrap {
@@ -83,20 +122,24 @@ li {
   justify-content: flex-start;
 }
 
-.buttonBox > button {
-  flex: 1 1 auto;
+.buttonBox > a {  
+  display:flex;
+  flex: 0 1 100%;
+  text-decoration: none;
 }
 
 button {
+  flex: 0 1 100%;
   background-color: #ffffff0e;
+  box-shadow: -1px 1px 5px #00000055;
   border: none;
-  padding: 2px 2px;
-  text-align: center;
-  color: rgb(228, 228, 228);
   font-size: 16px;
   border-radius: 10px;
-  box-shadow: -1px 1px 5px #00000055;
+  padding: 2px 2px;
+  color: rgb(228, 228, 228);
+
 }
+
 
 button:hover {
   background-color: #44444433;
@@ -126,4 +169,12 @@ button:active {
 
 #myCanvas {
   box-shadow: inset 0 0 240px #000000aa, inset 0 0 160px #000000aa, inset 0 0 120px #000000aa;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: left;
+  align-items: stretch;
+  margin: auto;
+  z-index: -1;
 }
