@@ -3,12 +3,14 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <meta charset="utf-8" />
-        <title>ir-dan</title>
-        <script src="index.js" defer></script>
+        <title>Home - Daniel Dodoc</title>
+        <script type="text/javascript" src="index.js" defer></script>
+        <script type="text/javascript" src="backdrop.js" defer></script>
         <link rel="stylesheet" href="style.css">
+        <link rel="preload" href="bg-image-wide.png" as="image">
     </head>
 
-    <canvas id="myCanvas" width="200" height="200"> </canvas>
+    <canvas id="myCanvas" width="1000" height="1000"> </canvas>
 
     <body onresize="resizeHandler()">
         <div class = "menu">
@@ -27,15 +29,18 @@
                         </div>
                         <hr class="bar">
                         <div class="buttonBox">
-                            <a href="portfolio.html"><button type="button"> Portfolio </button></a>
+                            <a href="projects.html"><button type="button"> Projects </button></a>
                             <a href="https://github.com/InRe-Dan"><button type="button"> GitHub </button></a>
                             <button type="button", class="aboutButton"> About Me </button>
                         </div>
                     </div>
 
                     <div class="about">
-                        <h1> Hey whats up hello!! </h1>
-                        <button type="button" id="exit-about"> Unflip </button>
+                        <p style="height: 180px;margin: 0; padding: 10px"> I love my wife! <p>
+                        <hr class="bar">
+                        <div class="buttonBox">
+                            <button type="button" id="exit-about"> Back </button>
+                        </div>
                     </div>
 
                 </div>
