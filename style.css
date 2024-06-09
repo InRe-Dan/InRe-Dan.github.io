@@ -11,7 +11,7 @@ body {
   background-size: auto 150%;
   size: 100% 100%;
   margin:0;
-  overflow: hidden; /* Hide scrollbars */
+  overflow: hidden;
 }
   
 ul {
@@ -68,7 +68,6 @@ li {
   text-align: center;
 }
 
-/* This container is needed to position the front and back side */
 .container-inner {
   display:flex;
   flex: 1 1 auto;
