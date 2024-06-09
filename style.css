@@ -7,15 +7,10 @@ html {
   }
 
 body {
-  background-color: black;
-  background-image: url("background.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-size: 120%, cover, cover;
-  background-position: center, top, bottom;
-  background-repeat: no-repeat;
-  height: 100vh;
-  margin: 0;
+  background: fixed center url("background.jpg");
+  background-size: auto 150%;
+  size: 100% 100%;
+  margin:0;
   overflow: hidden; /* Hide scrollbars */
 }
   
